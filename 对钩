@@ -1,0 +1,24 @@
+import tkinter as tk
+window=tk.Tk()
+window.title('小朋友快来玩呀')
+window.geometry('200x200')#窗口尺寸
+var1=tk.IntVar()
+var2=tk.IntVar()#注意这里变成int型
+l =tk.Label(window,bg='yellow',width=18,text='choose what you like')
+l.pack()
+def print_selection():
+	if(var1.get()==1)&(var2.get()==0):
+		l.config(text='i love python')
+	elif(var1.get()==0)&(var2.get()==1):
+		l.config(text='i love C++')
+	elif(var1.get()==1)&(var2.get()==1):
+		l.config(text='i love both')
+	else:
+		l.config(text='i love neither')
+c1=tk.Checkbutton(window,text='Python',variable=var1,onvalue=1,offvalue=0,command=print_selection)
+c2=tk.Checkbutton(window,text='C++',variable=var2,onvalue=1,offvalue=0,command=print_selection)	 
+l.pack()
+c1.pack()
+c2.pack()
+
+window.mainloop()
